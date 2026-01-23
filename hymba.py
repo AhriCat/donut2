@@ -52,6 +52,7 @@ class HyMBA_Block(nn.Module):
             y_rnn = self.rnn_proj(h_rnn)
             g = torch.sigmoid(self.gate(inp))
             fused = g[:, :1] * y_ssm + g[:, 1:2] * y_rnn
+            fused = self.dropout(fused)
             outputs.append(fused.unsqueeze(1))
         out = torch.cat(outputs, dim=1)
 

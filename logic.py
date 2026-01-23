@@ -1,6 +1,10 @@
 # ===============================
 # Logic Bias
 # ===============================
+import torch
+import torch.nn as nn
+
+
 class LogicBias(nn.Module):
     def __init__(self, dim, strength=0.08):
         super().__init__()

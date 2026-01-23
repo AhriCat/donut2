@@ -76,6 +76,10 @@ class FocusedAttentionGroup(nn.Module):
 
         logits = (A1 * A2) * self.scale
 
+        # Causal mask: prevent attending to future positions
+        causal_mask = torch.triu(torch.ones(N, N, device=x.device, dtype=torch.bool), diagonal=1)
+        logits = logits.masked_fill(causal_mask.unsqueeze(0).unsqueeze(0), float('-inf'))
+
         if bias is not None:
             # bias expected [N, N] or [H, N, N]; expand to B,H,N,N
             if bias.ndim == 2:
