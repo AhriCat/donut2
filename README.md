@@ -352,3 +352,4 @@ See [LICENSE](LICENSE) for details. For commercial licensing, contact [your emai
 - Parameter-sharing recursion based on "Relaxed Recursive Transformers" (ICLR 2025, Bae et al., arxiv:2410.20672)
 - Context-battling recursion based on "Recursive Language Models" (Zhang et al., arxiv:2512.24601)
 - HyMBA inspired by state-space model literature (Mamba, S4, etc.)
+- everyones work on 1 bit LLMs in 2024
