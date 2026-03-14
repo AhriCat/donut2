@@ -50,13 +50,18 @@ Input → Ternary Tokenizer → Embedding (tied weights)
 ### 1. Geometric Epistemics
 
 The ternary representation space creates three regimes:
-
+- ternary tokenizer
 | Region | Meaning | Geometric Location |
 |--------|---------|-------------------|
 | Positive (+1) | Confident assertion | Boundary |
 | Negative (-1) | Confident negation | Boundary |
 | Zero (0) | Uncertainty / "I don't know" | Center |
-
+- topological tokenizer(based on 3blue1browns lecture contents topological encoder of a loop.
+| Region | Meaning | Geometric Location |
+|--------|---------|-------------------|
+| Positive (1) | Confident assertion | Boundary |
+| Negative (0) | Confident negation | Boundary |
+| Zero (.5) | Uncertainty / "I don't know" | Center |
 With tied weights, output logits inherit this geometry. Uncertain hidden states → flat output distributions → calibrated "I don't know" responses.
 
 ### 2. Toroidal Manifold
