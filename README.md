@@ -105,7 +105,7 @@ pip install datasets
 ### Basic Inference
 
 ```python
-from model import TatochromicHybridModel
+from model import TautochronicHybridModel
 from tokenizer import TernaryTokenizer
 
 # Load or create tokenizer
@@ -114,7 +114,7 @@ tokenizer.train(your_texts, min_frequency=2)
 tokenizer.freeze()
 
 # Create model
-model = TatochromicHybridModel(
+model = TautochronicHybridModel(
     vocab_size=len(tokenizer.token_to_id),
     dim=512,
     depth=6,
@@ -141,9 +141,9 @@ print(output)
 ### With mHC (Donut v2)
 
 ```python
-from model_mhc import TatochromicHybridModel_mHC
+from model_mhc import TautochronicHybridModel_mHC
 
-model = TatochromicHybridModel_mHC(
+model = TautochronicHybridModel_mHC(
     vocab_size=len(tokenizer.token_to_id),
     dim=512,
     depth=6,
@@ -184,11 +184,11 @@ for epoch in range(num_epochs):
 
 | Variant | Class | Description |
 |---------|-------|-------------|
-| Donut (base) | `TatochromicHybridModel` | Original with scalar residual scales |
-| Donut-mHC | `TatochromicHybridModel_mHC` | With manifold-constrained hyper-connections |
-| Donut-mHC-DualPath | `TatochromicHybridModel_mHC_DualPath` | Separate mHC for attention and SSM paths |
-| Donut-mHC-Simple | `TatochromicHybridModel_mHC_Simple` | Shared H_res, separate H_post (fewer params) |
-| **Donut-R** | `TatochromicHybridModel_Recursive` | Recursive with weight sharing + LoRA |
+| Donut (base) | `TautochronicHybridModel` | Original with scalar residual scales |
+| Donut-mHC | `TautochronicHybridModel_mHC` | With manifold-constrained hyper-connections |
+| Donut-mHC-DualPath | `TautochronicHybridModel_mHC_DualPath` | Separate mHC for attention and SSM paths |
+| Donut-mHC-Simple | `TautochronicHybridModel_mHC_Simple` | Shared H_res, separate H_post (fewer params) |
+| **Donut-R** | `TautochronicHybridModel_Recursive` | Recursive with weight sharing + LoRA |
 
 ## Recursive Architecture (Donut-R)
 
@@ -251,9 +251,9 @@ This directly instantiates Donut's philosophy:
 
 ```python
 # Parameter-sharing recursion (built-in)
-from model_recursive import TatochromicHybridModel_Recursive
+from model_recursive import TautochronicHybridModel_Recursive
 
-model = TatochromicHybridModel_Recursive(
+model = TautochronicHybridModel_Recursive(
     vocab_size=len(tokenizer.token_to_id),
     dim=512,
     n_blocks=6,           # K: unique layer blocks
@@ -285,7 +285,7 @@ This is hierarchical modeling of contingency in action. When the contingency str
 
 ```
 donut/
-├── model.py              # Base Tatochromic Hybrid Model
+├── model.py              # Base Tautochronic Hybrid Model
 ├── model_mhc.py          # mHC-enhanced variants
 ├── model_recursive.py    # Parameter-sharing recursive variants
 ├── recursive.py          # Parameter-sharing recursion components
