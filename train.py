@@ -4,7 +4,7 @@ from torch.utils.data import DataLoader
 import torch
 import torch.nn.functional as F
 import torch.optim as optim
-from model import TatochromicHybridModel
+from model import tautochronicHybridModel
 from tokenizer import TernaryTokenizer
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -21,7 +21,7 @@ tokenizer.freeze()
 
 vocab_size = len(tokenizer.token_to_id)
 dim = 1024
-model = TatochromicHybridModel(vocab_size=vocab_size, dim=dim, depth=2)
+model = tautochronicHybridModel(vocab_size=vocab_size, dim=dim, depth=2)
 
 def tokenize_fn(example):
     prompt = example["prompt"]
