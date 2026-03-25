@@ -10,9 +10,9 @@ from transform import KroneckerTransform
 from logic import LogicBias
 from hymba import HyMBA_Block
 # ===============================
-# Full Tatochromic Hybrid Model
+# Full tautochronic Hybrid Model
 # ===============================
-class TatochromicHybridModel(nn.Module):
+class tautochronicHybridModel(nn.Module):
     def __init__(self, vocab_size, dim=512, depth=6, heads=8, groups=4, rank=32,
                  ssm_dim=64, rnn_dim=128, dropout=0.1, max_seq_len=512):
         super().__init__()
